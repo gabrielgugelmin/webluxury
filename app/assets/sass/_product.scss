@@ -1,0 +1,131 @@
+.Grid{
+	padding-top: 15px;
+	margin-bottom: 25px;
+
+	h2{
+		margin-bottom: 25px;
+	}
+
+	@include MQ(S){
+		padding-top: 25px;
+	}
+
+	@include MQ(M){
+		padding-top: 35px;
+	}
+}
+
+.Product{
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 250px;
+	position: relative;
+	margin-bottom: 15px;
+	overflow: hidden;
+
+	> a{
+		display: block;
+		height: 100%;
+		text-decoration: none;
+	}
+
+	button{
+		@include transition(all, .8s, ease);
+
+		background-color: transparent;
+		border: 1px solid $color5;
+		cursor: pointer;
+		display: block;
+		font-size: 28px;
+		font-weight: 600;
+		height: 34px;
+		line-height: 1;
+		margin: 20px auto 0;
+		width: 34px;
+
+		&:hover{
+			background-color: $color5;
+			color: white;
+		}
+	}
+
+	&-overlay{
+		@include transition(all, .8s, linear);
+
+		background: rgba(255, 255, 255, .69);
+		bottom: 0;
+		height: 100%;
+		padding: 10px 15px;
+		position: absolute;
+		top: 160px;
+		width: 100%;
+	}
+
+	&-text{
+		@include transition(all, .6s, linear);
+
+		position: absolute;
+		top: 10px;
+		width: calc(100% - 30px);
+
+		p, 
+		small{
+			letter-spacing: 0.5px;
+		}
+
+		p, 
+		span{
+			font-weight: 700;
+		}
+
+		small, 
+		span{
+			display: block;
+		}
+
+		p, 
+		small, 
+		span{
+			color: $color5;
+			line-height: 1;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		p{
+			font-size: 19px;
+			font-weight: 700;
+			margin-bottom: 6px;
+			margin-top: 0;
+		}
+
+		small{
+			display: block;
+			font-family: $georgia;
+			font-style: italic;
+			font-size: 14px;
+		}
+
+		span{
+			font-size: 15px;
+			text-align: right;
+			margin-top: 8px;
+		}
+	}
+
+	/* STATES */
+
+	&:hover{
+		.Product-overlay{
+			background: rgba(255, 255, 255, .75);
+			top: 0;
+		}
+
+		.Product-text{
+			top: 60px;
+			width: calc(100% - 30px);
+		}
+	}
+}

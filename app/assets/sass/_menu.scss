@@ -1,0 +1,321 @@
+/* HEADER */
+
+.Header{
+	height: 130px;
+	padding-top: 10px;
+
+	@include MQ(S){
+		height: 180px;
+		padding-top: 20px;
+	}
+
+	@include MQ(M){
+		height: 210px;
+		padding-top: 40px;
+	}
+
+	&-right{
+		float: right;
+
+		small{
+			display: none;
+		}
+
+		@include MQ(S){
+			margin-top: 35px;
+
+			small{
+				color: $color1;
+				display: inline-block;
+				font-size: 13px;
+				letter-spacing: 1px;
+				line-height: 1;
+				position: absolute;
+				text-align: center;
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	&-search{
+		margin-right: 25px;
+		position: relative;
+		text-decoration: none;
+
+		img{
+			height: 24px;
+			width: 24px;
+		}
+
+		@include MQ(S){
+			margin-right: 60px;
+
+			img{
+				height: 36px;
+				width: 36px;
+			}
+
+			small{
+				bottom: -19px;
+				left: -16px;
+			}
+		}
+	}
+
+	&-logo{
+		display: block;
+		margin: 5px auto 0;
+		max-width: 80%;
+
+		@include MQ(S){
+			margin: 0;
+			max-width: 470px;
+		}
+	}
+}
+
+
+/* MENU */
+
+.Menu{
+	/* @include transform(scale(0.9)); */
+	@include transition(all, .4s, ease-in-out);
+
+	background: rgba(0, 0, 0, .89);
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	padding-top: 30%;
+	position: absolute;
+	overflow-y: auto;
+	top: 0;
+	visibility: hidden;
+	width: 100%;
+	z-index: 2;
+
+	@include MQ(S){
+		padding-top: 30%;
+	}
+
+	@include MQ(M){
+		padding-top: 15%;
+	}
+
+	a{
+		text-decoration: none;
+	}
+
+	@keyframes slidein {
+	  from {
+	    opacity: 0;
+	  }
+
+	  to {
+	    opacity: 1;
+	  }
+	}
+
+	ul{
+		animation: slidein 1s 1.4s backwards;
+		list-style: none;
+		margin: 0 0 30px;
+		padding: 0;
+		text-align: center;
+
+		a{
+			@include transition(color, .8s, ease);
+
+			color: $color2;
+			display: inline-block;
+			font-size: 14px;
+			font-weight: 600;
+			letter-spacing: 2px;
+			line-height: 40px;
+			text-align: center;
+			text-transform: uppercase;
+
+			&:hover{
+				color: lighten($color2, 25%);
+			}
+		}
+
+		@include MQ(S){
+			margin-bottom: 40px;
+
+			a{
+				font-size: 26px;
+				line-height: 48px;
+			}
+		}
+
+		@include MQ(M){
+			margin-bottom: 40px;
+
+			a{
+				font-size: 30px;
+				line-height: 58px;
+			}
+		}
+	}
+
+	.is-active{
+		a{
+			color: $color1;
+			font-weight: 700;
+
+			&:hover{
+				color: #d9a242;
+			}
+		}
+	}
+
+
+	&-close{
+		height: 28px;
+		position: fixed;
+		right: 10%;
+		top: 9%;
+		width: 28px;
+
+		small{
+			color: $color1;
+			display: inline-block;
+			font-size: 10px;
+			letter-spacing: 1px;
+			line-height: 1;
+			margin-left: -6px;
+			margin-top: 32px;
+			text-align: center;
+			text-transform: uppercase;
+
+			@include MQ(S){
+				font-size: 13px;
+				margin-left: -10px;
+				margin-top: 40px;
+			}
+
+			@include MQ(M){
+				font-size: 16px;
+				margin-left: -14px;
+				margin-top: 45px;
+			}
+		}
+
+		span{
+			&::after, &::before{
+				background: $color1;
+				content: "";
+				display: block;
+				height: 3px;
+				position: absolute;
+				top: 12px;
+				width: 100%;
+
+				@include MQ(S){
+					left: -4px;
+					width: 42px;
+				}
+
+				@include MQ(S){
+					left: -6px;
+					width: 46px;
+				}
+			}
+
+			&::after{
+				@include transform(rotate(135deg));
+			}
+
+			&::before{
+				@include transform(rotate(-135deg));
+			}
+		}
+
+		@include MQ(S){
+			top: 15%;
+			height: 36px;
+			width: 36px;
+		}
+
+		@include MQ(M){
+			top: 20%;
+			right: 25%;
+			height: 44px;
+			width: 44px;
+		}
+	}
+}
+
+
+
+/* MENU ICON */
+
+.MenuTrigger{
+	display: inline-block;
+	height: 20px;
+	position: relative;
+	text-decoration: none;
+	width: 32px;
+
+	span{
+		@include center;
+		@include transition(all, .3s, linear);
+
+		background-color: $color1;
+		display: block;
+		height: 3px;
+		position: relative;
+		width: 100%;
+
+		&::after, &::before{
+			@include transition(all, .3s, linear);
+			@include transform(rotate(0));
+
+			background-color: $color1;
+			display: block;
+			content: "";
+			height: 3px;
+			position: absolute;
+			width: 100%;
+		}
+
+		&::after{
+			bottom: -10px;
+		}
+
+		&::before{
+			top: -10px;			
+		}
+
+		@include MQ(S){
+			&::after{
+				bottom: -14px;
+			}
+
+			&::before{
+				top: -14px;			
+			}
+		}	
+	}
+
+	@include MQ(S){
+		height: 32px;
+		width: 42px;
+
+		small{
+			bottom: -28px;
+		}
+	}
+}
+
+
+/* Menu opened */
+
+.is-navOpen{
+	overflow: hidden;
+
+	.Menu{
+		opacity: 1;
+		visibility: visible;
+	}
+}

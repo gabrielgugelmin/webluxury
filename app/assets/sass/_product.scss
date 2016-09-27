@@ -4,25 +4,35 @@
 
 	h2{
 		margin-bottom: 25px;
+
+		@include MQ(S){
+			margin-bottom: 10px;
+		}
+
+		@include MQ(M){
+			margin-bottom: 25px;
+		}
 	}
 
 	@include MQ(S){
-		padding-top: 25px;
+		padding-top: 30px;
+		margin-bottom: 50px;
 	}
 
 	@include MQ(M){
-		padding-top: 35px;
+		padding-top: 40px;
 	}
 }
 
 .Product{
 	background-position: center;
-	background-size: cover;
 	background-repeat: no-repeat;
+	background-size: cover;
 	height: 250px;
-	position: relative;
-	margin-bottom: 15px;
+	margin: 0 auto 15px;
+	max-width: 360px;
 	overflow: hidden;
+	position: relative;
 
 	> a{
 		display: block;

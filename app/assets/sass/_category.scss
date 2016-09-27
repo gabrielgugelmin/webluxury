@@ -1,0 +1,82 @@
+.Category{
+	margin-bottom: 45px;
+
+	@include MQ(S){
+		margin-bottom: 85px;
+	}
+
+	@include MQ(M){
+		margin-bottom: 80px;
+	}
+
+	h3{
+		@include MQ(S){
+			margin-bottom: 20px;
+		}
+	}
+
+	&-item{		
+		display: block;
+		margin-bottom: 10px;
+		position: relative;
+
+		@include MQ(S){
+			margin-bottom: 15px;
+		}
+
+		@include MQ(M){
+			margin-bottom: 20px;
+		}
+
+		&::after{
+			@include transition(all, .8s, ease);
+
+			background: rgba(0, 0, 0, .75);
+			content: "";
+			display: block;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			opacity: 0;
+			visibility: hidden;
+			top: 0;
+			width: 100%;
+		}
+
+		h6{
+			@include center;
+
+			color: white;
+			font-size: 12px;
+			font-style: italic;
+			font-weight: 700;
+			letter-spacing: 0.5px;
+			line-height: 1;
+			margin: 0;
+			position: absolute;
+			text-align: left;
+			text-shadow: 1px -1px 8px rgba(0,0,0, .5);
+			text-transform: uppercase;
+			width: calc(100% - 20px);
+			z-index: 1;
+
+			@include MQ(S){
+				font-size: 16px;
+			}
+
+			@include MQ(M){
+				font-size: 18px;
+			}
+		}
+
+
+		/* STATES */
+
+		&:hover{
+			&::after{
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+}

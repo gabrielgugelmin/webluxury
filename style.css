@@ -166,7 +166,7 @@ body {
   .Header-logo {
     display: block;
     margin: 5px auto 0;
-    max-width: 80%; }
+    max-width: 235px; }
     @media only screen and (min-width: 768px) {
       .Header-logo {
         margin: 0;
@@ -373,11 +373,22 @@ body {
     visibility: visible; }
 
 /* HEADINGS */
+h2,
+h3 {
+  letter-spacing: 1px; }
+
+h3,
+h5 {
+  font-weight: 600; }
+
+h2,
+h3,
+h5 {
+  color: #bea67c; }
+
 h2 {
-  color: #bea67c;
   font-size: 12px;
   font-weight: 400;
-  letter-spacing: 1px;
   line-height: 25px;
   margin: 0;
   padding: 0; }
@@ -387,6 +398,28 @@ h2 {
   @media only screen and (min-width: 992px) {
     h2 {
       font-size: 20px; } }
+
+h3 {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  padding: 0; }
+  @media only screen and (min-width: 768px) {
+    h3 {
+      font-size: 18px; } }
+
+h5 {
+  font-size: 12px;
+  line-height: 26px;
+  letter-spacing: 0.5px; }
+  @media only screen and (min-width: 768px) {
+    h5 {
+      font-size: 18px;
+      font-weight: 400; } }
+  @media only screen and (min-width: 992px) {
+    h5 {
+      font-weight: 600; } }
 
 /* BUTTONS */
 .u-button {
@@ -411,12 +444,28 @@ h2 {
     font-size: 10px;
     padding: 8px; }
 
+/* LINKS */
+.u-link {
+  color: #bea67c;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none; }
+  @media only screen and (min-width: 768px) {
+    .u-link {
+      font-size: 18px;
+      font-weight: 500; } }
+
 /* SLICK */
 .slick-slider,
 .slick-track,
 .slick-list {
-  height: 100%;
+  -height: 100%;
   width: 100%; }
+
+.slick-slide {
+  height: auto; }
 
 .SlickDots-wrapper {
   bottom: 0;
@@ -425,6 +474,12 @@ h2 {
   right: 0;
   position: absolute;
   width: 100%; }
+
+.u-slickGold .slick-dots li button {
+  background-color: #daceb9; }
+.u-slickGold .slick-dots li.slick-active button {
+  background-color: transparent;
+  border: 3px solid #bea67c; }
 
 .slick-dots {
   bottom: 15px;
@@ -476,12 +531,12 @@ h2 {
         height: 14px;
         width: 14px; }
 
-.slick-next, .slick-prev {
+.slick-arrow {
   top: calc(50% - 36px);
   height: 70px;
   width: 70px;
   z-index: 1; }
-  .slick-next::before, .slick-next::after, .slick-prev::before, .slick-prev::after {
+  .slick-arrow::before, .slick-arrow::after {
     -webkit-transition: background-color, 0.3s, ease-in-out;
     -moz-transition: background-color, 0.3s, ease-in-out;
     -ms-transition: background-color, 0.3s, ease-in-out;
@@ -494,7 +549,7 @@ h2 {
     opacity: 1;
     position: absolute;
     width: 44px; }
-  .slick-next:hover::before, .slick-next:hover::after, .slick-prev:hover::before, .slick-prev:hover::after {
+  .slick-arrow:hover::before, .slick-arrow:hover::after {
     background-color: #bfa77e; }
 
 .slick-next {
@@ -552,7 +607,8 @@ hr {
   margin-left: auto;
   margin-right: auto;
   padding-left: 0;
-  padding-right: 0; }
+  padding-right: 0;
+  width: calc(100% - 30px); }
   @media only screen and (min-width: 768px) {
     hr {
       width: calc(750px - 30px); } }
@@ -563,26 +619,84 @@ hr {
     hr {
       width: calc(1170px - 30px); } }
 
+/* FORM */
+.Form-control {
+  margin-bottom: 15px;
+  position: relative; }
+  .Form-control.error input[type="text"],
+  .Form-control.error input[type="email"] {
+    border-color: #cf3a3a; }
+  .Form-control.error span {
+    opacity: 1;
+    visibility: visible; }
+.Form input {
+  width: 100%; }
+.Form input[type="text"],
+.Form input[type="email"] {
+  border: 1px solid #ededed;
+  color: #999999;
+  font-size: 12px;
+  line-height: 1;
+  padding: 12px 10px; }
+.Form input[type="submit"] {
+  -webkit-transition: all, 0.6s, ease;
+  -moz-transition: all, 0.6s, ease;
+  -ms-transition: all, 0.6s, ease;
+  transition: all, 0.6s, ease;
+  background-color: #212121;
+  border-color: 1px solid #212121;
+  border: none;
+  color: #bea67c;
+  cursor: pointer;
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  height: 42px;
+  letter-spacing: 1px;
+  line-height: 42px;
+  margin: 0 auto;
+  width: 80%; }
+  .Form input[type="submit"]:hover {
+    background-color: #bea67c;
+    color: #212121; }
+.Form span {
+  color: #cf3a3a;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0;
+  position: absolute;
+  right: 5px;
+  top: 0;
+  visibility: hidden; }
+
 .Grid {
   padding-top: 15px;
   margin-bottom: 25px; }
   .Grid h2 {
     margin-bottom: 25px; }
+    @media only screen and (min-width: 768px) {
+      .Grid h2 {
+        margin-bottom: 10px; } }
+    @media only screen and (min-width: 992px) {
+      .Grid h2 {
+        margin-bottom: 25px; } }
   @media only screen and (min-width: 768px) {
     .Grid {
-      padding-top: 25px; } }
+      padding-top: 30px;
+      margin-bottom: 50px; } }
   @media only screen and (min-width: 992px) {
     .Grid {
-      padding-top: 35px; } }
+      padding-top: 40px; } }
 
 .Product {
   background-position: center;
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
   height: 250px;
-  position: relative;
-  margin-bottom: 15px;
+  margin: 0 auto 15px;
+  max-width: 360px;
   overflow: hidden;
+  position: relative;
   /* STATES */ }
   .Product > a {
     display: block;
@@ -666,9 +780,219 @@ hr {
 
 .News {
   background-color: #f6f6f6;
-  margin: 15px;
-  padding: 12px;
-  width: calc(100% - 30px); }
+  padding: 12px 12px 70px;
+  margin-bottom: 60px; }
+  @media only screen and (min-width: 768px) {
+    .News {
+      padding: 40px 40px 80px; } }
+  @media only screen and (min-width: 1200px) {
+    .News {
+      padding: 50px; } }
+  .News img {
+    margin: 0 auto; }
+  .News h4 {
+    color: #212121;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    line-height: 1.4;
+    margin: 15px 0;
+    text-align: center;
+    text-transform: uppercase; }
+    @media only screen and (min-width: 768px) {
+      .News h4 {
+        font-size: 22px;
+        letter-spacing: 0.5px;
+        margin: 10px 0 15px; } }
+  .News p {
+    color: #606060;
+    display: block;
+    /* Fallback for non-webkit */
+    display: -webkit-box;
+    font-family: "Georgia", "Open Sans", sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    height: 112.5px;
+    /* Fallback for non-webkit */
+    letter-spacing: 1px;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical; }
+    @media only screen and (min-width: 768px) {
+      .News p {
+        font-size: 16px;
+        height: 168px;
+        /* Fallback for non-webkit */ } }
+  .News div:last-child {
+    *zoom: 1; }
+  .News div:last-child:before, .News div:last-child:after {
+    content: "";
+    display: table; }
+  .News div:last-child:after {
+    clear: both; }
+  .News .u-link {
+    float: right; }
+  .News .slick-dots {
+    bottom: 24px; }
+    @media only screen and (min-width: 768px) {
+      .News .slick-dots {
+        left: 100px; } }
+    @media only screen and (min-width: 1200px) {
+      .News .slick-dots {
+        left: 140px; } }
+  .News .slick-arrow {
+    bottom: -2px;
+    height: 34px;
+    top: inherit;
+    width: 34px; }
+    .News .slick-arrow::before, .News .slick-arrow::after {
+      background-color: #bea67c;
+      height: 1px;
+      width: 20px; }
+    .News .slick-arrow::before {
+      top: 16px; }
+    .News .slick-arrow::after {
+      top: 16px; }
+    @media only screen and (min-width: 992px) {
+      .News .slick-arrow {
+        bottom: inherit;
+        top: calc(50% - 17px); } }
+  .News .slick-next {
+    right: 0; }
+    .News .slick-next::before, .News .slick-next::after {
+      right: 15px; }
+  .News .slick-prev {
+    left: 0; }
+    .News .slick-prev::before, .News .slick-prev::after {
+      left: 15px; }
+  .News-link {
+    display: inline-block;
+    text-align: right;
+    width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .News-item div {
+      float: left; }
+    .News-item .News-left {
+      width: 46%; }
+    .News-item .News-right {
+      margin-left: 30px;
+      width: calc(54% - 30px); } }
+  .News-footer {
+    margin-bottom: 40px; }
+    @media only screen and (min-width: 768px) {
+      .News-footer {
+        text-align: right;
+        margin-bottom: 35px; } }
+    @media only screen and (min-width: 992px) {
+      .News-footer {
+        margin-bottom: 65px; } }
+    .News-footer a,
+    .News-footer h5 {
+      display: inline-block;
+      vertical-align: middle; }
+    .News-footer h5 {
+      line-height: 1;
+      margin-bottom: 15px;
+      margin-right: 15px; }
+      @media only screen and (min-width: 768px) {
+        .News-footer h5 {
+          position: relative;
+          padding-left: 20px; }
+          .News-footer h5::before {
+            content: ">";
+            display: inline-block;
+            position: absolute;
+            left: 0; } }
+      @media only screen and (min-width: 992px) {
+        .News-footer h5 {
+          margin-right: 40px; } }
+
+.Partner h3 {
+  text-align: right; }
+  @media only screen and (min-width: 992px) {
+    .Partner h3 {
+      font-weight: 600;
+      margin-bottom: 24px; } }
+.Partner-item {
+  display: inline-block;
+  margin-bottom: 20px; }
+  @media only screen and (min-width: 768px) {
+    .Partner-item {
+      margin-bottom: 40px; } }
+
+.Category {
+  margin-bottom: 45px; }
+  @media only screen and (min-width: 768px) {
+    .Category {
+      margin-bottom: 85px; } }
+  @media only screen and (min-width: 992px) {
+    .Category {
+      margin-bottom: 80px; } }
+  @media only screen and (min-width: 768px) {
+    .Category h3 {
+      margin-bottom: 20px; } }
+  .Category-item {
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
+    /* STATES */ }
+    @media only screen and (min-width: 768px) {
+      .Category-item {
+        margin-bottom: 15px; } }
+    @media only screen and (min-width: 992px) {
+      .Category-item {
+        margin-bottom: 20px; } }
+    .Category-item::after {
+      -webkit-transition: all, 0.8s, ease;
+      -moz-transition: all, 0.8s, ease;
+      -ms-transition: all, 0.8s, ease;
+      transition: all, 0.8s, ease;
+      background: rgba(0, 0, 0, 0.75);
+      content: "";
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+      top: 0;
+      width: 100%; }
+    .Category-item h6 {
+      left: 50%;
+      top: 50%;
+      bottom: auto;
+      right: auto;
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -o-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      color: white;
+      font-size: 12px;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      line-height: 1;
+      margin: 0;
+      position: absolute;
+      text-align: left;
+      text-shadow: 1px -1px 8px rgba(0, 0, 0, 0.5);
+      text-transform: uppercase;
+      width: calc(100% - 20px);
+      z-index: 1; }
+      @media only screen and (min-width: 768px) {
+        .Category-item h6 {
+          font-size: 16px; } }
+      @media only screen and (min-width: 992px) {
+        .Category-item h6 {
+          font-size: 18px; } }
+    .Category-item:hover::after {
+      opacity: 1;
+      visibility: visible; }
 
 * {
   font-family: "Open Sans", sans-serif; }
@@ -770,7 +1094,7 @@ img {
     font-size: 30px;
     line-height: 1.2;
     margin: 0 0 30px;
-    max-width: 70%; }
+    max-width: 85%; }
     @media only screen and (min-width: 768px) {
       .Banner h3 {
         font-size: 40px;
@@ -783,5 +1107,20 @@ img {
     @media only screen and (min-width: 1200px) {
       .Banner h3 {
         margin-bottom: 70px; } }
+
+.Content {
+  margin-top: 35px; }
+  @media only screen and (min-width: 768px) {
+    .Content {
+      margin-top: 20px; } }
+  @media only screen and (min-width: 992px) {
+    .Content {
+      margin-top: 60px; } }
+  .Content h2 {
+    font-weight: 600;
+    margin-bottom: 20px; }
+    @media only screen and (min-width: 768px) {
+      .Content h2 {
+        font-weight: 400; } }
 
 /*# sourceMappingURL=style.css.map */

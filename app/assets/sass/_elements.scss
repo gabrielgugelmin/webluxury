@@ -1,10 +1,24 @@
 /* HEADINGS */
 
-h2{
-	color: $color3;
-	font-size: 12px;
-	font-weight: 400;
+h2, 
+h3{
 	letter-spacing: 1px;
+}
+
+h3,
+h5{
+	font-weight: 600;
+}
+
+h2,
+h3,
+h5{
+	color: $color3;
+}
+
+h2{	
+	font-size: 12px;
+	font-weight: 400;	
 	line-height: 25px;
 	margin: 0;
 	padding: 0;
@@ -15,6 +29,33 @@ h2{
 
 	@include MQ(M){
 		font-size: 20px;
+	}
+}
+
+h3{
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.2;
+	margin: 0 0 10px;
+	padding: 0;
+
+	@include MQ(S){
+		font-size: 18px;
+	}
+}
+
+h5{
+	font-size: 12px;
+	line-height: 26px;
+	letter-spacing: 0.5px;
+
+	@include MQ(S){
+		font-size: 18px;
+		font-weight: 400;
+	}
+
+	@include MQ(M){
+		font-weight: 600;
 	}
 }
 
@@ -49,13 +90,35 @@ h2{
 
 
 
+/* LINKS */
+
+.u-link{
+	color: $color3;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	text-decoration: none;
+
+	@include MQ(S){
+		font-size: 18px;
+		font-weight: 500;
+	}
+}
+
+
+
 /* SLICK */
 
 .slick-slider,
 .slick-track,
 .slick-list{
-	height: 100%;
+	-height: 100%;
 	width: 100%;
+}
+
+.slick-slide{
+	height: auto;
 }
 
 .SlickDots-wrapper{
@@ -65,6 +128,21 @@ h2{
 	right: 0;
 	position: absolute;
 	width: 100%;
+}
+
+.u-slickGold{
+	.slick-dots li{
+		button{
+			background-color: $color9;
+		}
+
+		&.slick-active{
+			button{
+				background-color: transparent;
+				border: 3px solid $color3;
+			}
+		}
+	}
 }
 
 .slick-dots{
@@ -119,7 +197,7 @@ h2{
 	}
 }
 
-.slick-next, .slick-prev{
+.slick-arrow{
 	top: calc(50% - 36px);
 	height: 70px;
 	width: 70px;
@@ -196,6 +274,7 @@ hr{
 	margin-right: auto;
 	padding-left: 0;
 	padding-right: 0;
+	width: calc(100% - 30px);
 
 	@include MQ(S){
 		width: calc(750px - 30px);
@@ -207,5 +286,75 @@ hr{
 
 	@include MQ(L){
 		width: calc(1170px - 30px);
+	}
+}
+
+
+
+/* FORM */
+
+.Form{
+	&-control{
+		margin-bottom: 15px;
+		position: relative;
+
+		&.error{
+			input[type="text"],
+			input[type="email"]{
+				border-color: #cf3a3a;
+			}
+
+			span{
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	input{
+		width: 100%;
+	}
+
+	input[type="text"],
+	input[type="email"]{
+		border: 1px solid $color10;
+		color: $color11;
+		font-size: 12px;
+		line-height: 1;
+		padding: 12px 10px;
+	}
+
+	input[type="submit"]{
+		@include transition(all, .6s, ease);
+
+		background-color: $color7;
+		border-color: 1px solid $color7;
+		border: none;
+		color: $color3;
+		cursor: pointer;
+		display: block;
+		font-size: 12px;
+		font-weight: 600;
+		height: 42px;
+		letter-spacing: 1px;
+		line-height: 42px;
+		margin: 0 auto;
+		width: 80%;
+
+		&:hover{
+			background-color: $color3;
+			color: $color7;
+		}
+	}
+
+	span{
+		color: #cf3a3a;
+		font-size: 14px;
+		font-weight: 600;
+		opacity: 0;
+		position: absolute;
+		right: 5px;
+		top: 0;
+		visibility: hidden;
 	}
 }

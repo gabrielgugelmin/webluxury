@@ -21,9 +21,25 @@ $(function(){
   	$('.slick-dots').wrap('<div class="SlickDots-wrapper"><div class="container"></div></div>');	
 	});
 
-	$('.js-slider').slick({
+	$('.js-slider').each(function( index ) {
+		$(this).slick({
+			dots: true,
+			arrows: hasArrow(this),
+			mobileFirst: true,
+			responsive: [
+	    {
+	      breakpoint: 1024,
+	      settings: {
+	        arrows: true
+	      }
+	    }
+	  ]
+		});
+	});
+
+	/*$('.js-slider').slick({
 		dots: true,
-		arrows: false,
+		arrows: hasArrow(this),
 		mobileFirst: true,
 		responsive: [
     {
@@ -33,5 +49,16 @@ $(function(){
       }
     }
   ]
-	});
+	});*/
 });
+
+function hasArrow(slider){
+	var bool = false;
+	if($(slider).hasClass('js-sliderArrow')){
+		bool = true;
+	} else {
+		bool = false;
+	}
+
+	return bool;
+}

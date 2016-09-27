@@ -4,6 +4,7 @@
 @import 'elements';
 @import 'product';
 @import 'news';
+@import 'category';
 
 *{
 	font-family: $open;
@@ -138,7 +139,7 @@ img{
 		font-size: 30px;
 		line-height: 1.2;
 		margin: 0 0 30px;
-		max-width: 70%;
+		max-width: 85%;
 
 		@include MQ(S){
 			font-size: 40px;
@@ -153,6 +154,29 @@ img{
 
 		@include MQ(L){
 			margin-bottom: 70px;
+		}
+	}
+}
+
+
+
+.Content{
+	margin-top: 35px;
+
+	@include MQ(S){
+		margin-top: 20px;
+	}
+
+	@include MQ(M){
+		margin-top: 60px;
+	}
+
+	h2{
+		font-weight: 600;
+		margin-bottom: 20px;
+
+		@include MQ(S){
+			font-weight: 400;
 		}
 	}
 }
